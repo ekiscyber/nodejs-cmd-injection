@@ -17,9 +17,13 @@
 13. Tercer Desafío
 14. Cierre y próximos Pasos
 
+<details>
+
 ### Disclaimer
 
 Dependiendo en la plataforma que te encuentres algunos de los procedimientos, archivos y comandos pueden cambiar. Este workshop ha sido probado en ambientes Windows y Mac. Si te encuentras con algún error recuerda que es parte del proceso de aprendizaje y resolverlos es la gratificación. Ante cualquier error procura primero comprender el error antes de buscar en la red, es muy probable que alguien haya pasado por lo mismo que tu. Sin más que resaltar, vamos a divertirnos.
+
+</details>
 
 ### Requerimientos del Workshop
 
@@ -42,7 +46,7 @@ _Nota:_ Algunos sistemas operativos requieren software adicional para instalar e
 
 ## Conociendo Snyk Open-Source
 
-Cada vez que desarrollamos una aplicación hacemos uso de código abierto(open source). Librerías gratuitas que son importadas a nuestra aplicación en forma de paquetes, a su vez estas librerías dependen de otras librerías. Esto permite acelerar el desarrollo de aplicaciones y no re-inventar la rueda, pero por otro lado expone a las organizaciones a tener problemas de seguridad y de licenciamiento.
+Cada vez que desarrollamos una aplicación hacemos uso de código open source. Este código en forma de librerías, son importadas a nuestra aplicación, permitiendo desarrollar aplicaciones de forma más rápita y nos evita tener que construir la misma funcionalidad una y otra vez. Estas librerías también dependen de otras más, y así se van reutilizando. Sin embargo, las librerías no están libres de tener vulnerabilidades o que alguien pueda modificar su código y es por esta razón que el uso de librerías expone a las organizaciones a tener problemas de seguridad y de licenciamiento.
 
 **Snyk Open Source** permite analizar facilmente todas las librerías(dependencias) detectando vulnerabilidades en toda la rama de librerías. Sí, scuchaste bien, no solo analiza la librería principal, también analiza toda las librerías complementarias. Asimismo, analiza el licenciamiento de cada librería para proporcionarte una vista global del riesgo de seguridad en cuando al uso de librerías y licencias.
 
@@ -50,11 +54,11 @@ También puede integrarse con los sistemas de gestión de código (SCM) como git
 
 ![Snyk Open Source](snykopensource.png)
 
-A lo largo del workshop vamos a utilizar esta funcionalidad, así como otras.
+A lo largo del workshop vamos a utilizar esta funcionalidad, así como otras funcionalidades de Snyk.
 
 ## Instalar una aplicación Vulnerable
 
-Para el laboratorio vamos a utilizar una versión simplificada de la aplicación original: [Vulnerable NodeJS Applicaion](#https://github.com/payatu/vuln-nodejs-app). Si luego, deseas explorar más de 20 vulnerabilidades con su respectiva solución te recomiendo utilices su repositorio original; eso sí, vas a necesitar más recursos de tu computadora para correr los contenedores y también más espacio en disco.
+Vamos a la práctica. Para el laboratorio vamos a utilizar una versión simplificada de la aplicación original: [Vulnerable NodeJS Applicaion](#https://github.com/payatu/vuln-nodejs-app). Si luego, deseas explorar más de 20 vulnerabilidades con su respectiva solución te recomiendo utilices su repositorio original; eso sí, vas a necesitar más recursos de tu computadora para correr los contenedores y también más espacio en disco.
 
 1. Utilizando la terminal o powershell en windows. Vamos a clonar el repositorio haciendo uso de git clone y guardarlo en una carpeta snyk-workshop
 
@@ -117,3 +121,9 @@ docker image rm <IMAGE_ID>
 ```
 
 ## Conociento Snyk CLI
+
+Snyk CLI será la manera de llevar el poder de las pruebas de seguridad de Snyk a tu pipeline CI/CD. Dicho de otra manera, permitirá correr pruebas de seguridad via línea de comandos y de manera automatizada. Menos letra, vamos a la práctica.
+
+> Nota: EKIS Cybersecurity ayuda a las empresas a integrar Snyk dentro del Pipeline de CI/CD.
+
+1. Vamos a descargar Snyk CLI
