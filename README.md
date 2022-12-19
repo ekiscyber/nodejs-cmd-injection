@@ -1,27 +1,27 @@
 # Workshop de Análisis y Remediación de Código con Snyk
 
-## Contenido del Workshop
+### Contenido del Workshop
 
 1. [Diclaimer](#Disclaimer)
-2. [Requerimientos del Workshop](#requerimientos-del-workshop)
+2. [Requerimientos del workshop](#requerimientos-del-workshop)
 3. [Conociendo Snyk Open-Source](#requerimientos-del-workshop)
 4. [Instalar una aplicación vulnerable](#instalar-una-aplicación-vulnerable)
 5. [Conociento Snyk CLI](#conociento-snyk-cli)
 6. [Mi primer análisis de Composición de Software(SCA)](#mi-primer-análisis-de-composición-de-softwaresca)
-7. [Primer Desafío](#primer-desafío)
-8. Conociento Snyk Plug-in para VSCode
-9. Remediando vulnerabilidades en las dependencias
+7. [Primer desafío](#primer-desafío)
+8. Remediando vulnerabilidades en las dependencias
+9. [Conociento Snyk Plug-in para VSCode](#conociento-snyk-plug-in-para-vscode)
 10. Segundo Desafío
 11. Conociendo Snyk Code
 12. Remediando Vulnerabilidades en Código
 13. Tercer Desafío
 14. Cierre y próximos Pasos
 
-### Disclaimer
+## Disclaimer
 
 Dependiendo en la plataforma que te encuentres algunos de los procedimientos, archivos y comandos pueden cambiar. Este workshop ha sido probado en ambientes Windows y Mac. Si te encuentras con algún error recuerda que es parte del proceso de aprendizaje y resolverlos es la gratificación. Ante cualquier error procura primero comprender el error antes de buscar en la red, es muy probable que alguien haya pasado por lo mismo que tu. Sin más que resaltar, vamos a divertirnos.
 
-### Requerimientos del Workshop
+## Requerimientos del Workshop
 
 **Requerimientos de la PC**
 
@@ -40,7 +40,7 @@ Dependiendo en la plataforma que te encuentres algunos de los procedimientos, ar
 
 _Nota:_ Algunos sistemas operativos requieren software adicional para instalar el software
 
-### Conociendo Snyk Open-Source
+## Conociendo Snyk Open-Source
 
 Cada vez que desarrollamos una aplicación hacemos uso de código open source. Este código en forma de librerías, son importadas a nuestra aplicación, permitiendo desarrollar aplicaciones de forma más rápita y nos evita tener que construir la misma funcionalidad una y otra vez. Estas librerías también dependen de otras más, y así se van reutilizando. Sin embargo, las librerías no están libres de tener vulnerabilidades o que alguien pueda modificar su código y es por esta razón que el uso de librerías expone a las organizaciones a tener problemas de seguridad y de licenciamiento.
 
@@ -52,7 +52,7 @@ También puede integrarse con los sistemas de gestión de código (SCM) como git
 
 A lo largo del workshop vamos a utilizar esta funcionalidad, así como otras funcionalidades de Snyk.
 
-### Instalar una aplicación Vulnerable
+## Instalar una aplicación Vulnerable
 
 Vamos a la práctica. Para el laboratorio vamos a utilizar una versión simplificada de la aplicación original: [Vulnerable NodeJS Applicaion](#https://github.com/payatu/vuln-nodejs-app). Si luego, deseas explorar más de 20 vulnerabilidades con su respectiva solución te recomiendo utilices su repositorio original; eso sí, vas a necesitar más recursos de tu computadora para correr los contenedores y también más espacio en disco.
 
@@ -118,7 +118,7 @@ docker rm <CONTAINER_ID>
 docker image rm <IMAGE_ID>
 ```
 
-### Conociento Snyk CLI
+## Conociento Snyk CLI
 
 Snyk CLI será la manera de llevar el poder de las pruebas de seguridad de Snyk a tu pipeline CI/CD. Dicho de otra manera, permitirá correr pruebas de seguridad via línea de comandos y de manera automatizada. Menos letra, vamos a la práctica.
 
@@ -161,13 +161,13 @@ En Windows
 
 Abrirá el navegador y procederemos a ingresas nuestras credenciales de snyk. Debemos recibir el siguiente mensaje
 
-```bash
+```html
 Your account has been authenticated. Snyk is now ready to be used.
 ```
 
 Ya estamos listos para el primer análisis.
 
-### Mi primer análisis de Composición de Software(SCA)
+## Mi primer análisis de Composición de Software(SCA)
 
 Procederemos a analizar nuestras librerías o como otros los llaman las dependencias de nuestra aplicación. Este tipo de pruebas de seguridad es conocido como Análisis de composición de Software o Software Composition Analysis(SCA) en Inglés. Para realizar el análisis local, ejecutamos los siguientes comandos.
 
@@ -183,12 +183,29 @@ En Windows
 .\snyk.exe test
 ```
 
-oh!, encontró una vulnerabilidad en EJS y también tiene la solución:
+oh!, encontró una vulnerabilidad en EJS y también tiene la solución.
 
-En este proyecto sumamente light encontró una vulnerabilidad, imagina en proyectos donde tienen miles de dependencias. La cantidad de vulnerabilidades que puedes encontrar es mucho mayor.
+En este proyecto sumamente light, Snyk encontró una vulnerabilidad. Imagina en proyectos donde tienen miles de dependencias. La cantidad de vulnerabilidades que puedes encontrar es mucho mayor.
 
-### Primer Desafío
+Snyk CLI también permite realizar otras pruebas de seguridad como Análisis Estático de Código(SAST) o Análisis de código de infraestructura como código (IaC). Asimismo, con un solo comando puedes subir tu código a la plataforma SaaS para tener una vista consolidada y visual de las vulnerabilidades. Lo dejamos para una segunda edición del Workshop.
+
+## Primer Desafío
 
 El área de ciberseguridad te está pidiendo los resultados del análisis de composición de software (SCA), pero para poder analizarlos en su sistemas de inteligencia artificial predictiva, necesta los resultados en formato JSON.
 
 > ¿Cómo podrías obtener los resultados de esta análisis en formato json?
+
+## Remediando vulnerabilidades en las dependencias
+
+Ahora que encontramos una vulnerabilidad en nuestras dependencias, vamos a remediarlos. Debes saber que muchas veces luego de remediar una vulnerabilidad actualizando la dependencia puede dejar a nuestra aplicación rota, es decir incapáz de seguir operando ya que la dependencia necesita de algunos cambios en el código.
+
+Snyk integrado a los sistemas de gestión de código, permite determinar si la actualización puede romper algo. Enviando una notificación parecida a la siguiente:
+
+| Severity | Priority Score(\*) | Issue | Breaking Change |
+Exploit Maturity |
+| :-------------- | :------------------------------------------------------------------------------- | :----------------------------------------------------------------------- | :-----------------------------------------------------------------------------------------: |
+:-----------------------------------------------------------------------------------------: |
+| **H** | 798/1000
+| Remote Code Execution (RCE) | No | Proof of Concept |
+
+## Conociento Snyk Plug-in para VSCode
