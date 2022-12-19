@@ -201,11 +201,8 @@ Ahora que encontramos una vulnerabilidad en nuestras dependencias, vamos a remed
 
 Snyk integrado a los sistemas de gestión de código, permite determinar si la actualización puede romper algo. Enviando una notificación parecida a la siguiente:
 
-| Severity | Priority Score(\*) | Issue | Breaking Change |
-Exploit Maturity |
-| :-------------- | :------------------------------------------------------------------------------- | :----------------------------------------------------------------------- | :-----------------------------------------------------------------------------------------: |
-:-----------------------------------------------------------------------------------------: |
-| **H** | 798/1000
-| Remote Code Execution (RCE) | No | Proof of Concept |
+| Severity | Priority Score(\*) | Issue                       | Breaking Change | Exploit Maturity |
+| :------- | :----------------- | :-------------------------- | :-------------: | :--------------: |
+| **H**    | 798/1000           | Remote Code Execution (RCE) |       No        | Proof of Concept |
 
 ## Conociento Snyk Plug-in para VSCode
