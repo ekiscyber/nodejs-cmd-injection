@@ -18,12 +18,16 @@
 14. Cierre y próximos Pasos
 
 <details>
+  <summary>Disclaimer</summary>
 
 ### Disclaimer
 
 Dependiendo en la plataforma que te encuentres algunos de los procedimientos, archivos y comandos pueden cambiar. Este workshop ha sido probado en ambientes Windows y Mac. Si te encuentras con algún error recuerda que es parte del proceso de aprendizaje y resolverlos es la gratificación. Ante cualquier error procura primero comprender el error antes de buscar en la red, es muy probable que alguien haya pasado por lo mismo que tu. Sin más que resaltar, vamos a divertirnos.
 
 </details>
+
+<details>
+  <summary>Requerimientos del Workshop</summary>
 
 ### Requerimientos del Workshop
 
@@ -43,6 +47,8 @@ Dependiendo en la plataforma que te encuentres algunos de los procedimientos, ar
 - [Crear un Cuenta Free en Snyk](#https://app.snyk.io/login)
 
 _Nota:_ Algunos sistemas operativos requieren software adicional para instalar el software
+
+</details>
 
 ## Conociendo Snyk Open-Source
 
