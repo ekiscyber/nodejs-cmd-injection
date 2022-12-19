@@ -5,8 +5,8 @@
 1. [Diclaimer](#Disclaimer)
 2. [Requerimientos del Workshop](#requerimientos-del-workshop)
 3. [Conociendo Snyk Open-Source](#requerimientos-del-workshop)
-4. Instalar una aplicación vulnerable
-5. Conociento Snyk CLI
+4. [Instalar una aplicación vulnerable](#instalar-una-aplicación-vulnerable)
+5. [Conociento Snyk CLI](#conociento-snyk-cli)
 6. Mi primer análisis de Composición de Software(SCA)
 7. Primer Desafío
 8. Conociento Snyk Plug-in para VSCode
@@ -39,6 +39,18 @@ Dependiendo en la plataforma que te encuentres algunos de los procedimientos, ar
 - [Crear un Cuenta Free en Snyk](#https://app.snyk.io/login)
 
 _Nota:_ Algunos sistemas operativos requieren software adicional para instalar el software
+
+## Conociendo Snyk Open-Source
+
+Cada vez que desarrollamos una aplicación hacemos uso de código abierto(open source). Librerías gratuitas que son importadas a nuestra aplicación en forma de paquetes, a su vez estas librerías dependen de otras librerías. Esto permite acelerar el desarrollo de aplicaciones y no re-inventar la rueda, pero por otro lado expone a las organizaciones a tener problemas de seguridad y de licenciamiento.
+
+**Snyk Open Source** permite analizar facilmente todas las librerías(dependencias) detectando vulnerabilidades en toda la rama de librerías. Sí, scuchaste bien, no solo analiza la librería principal, también analiza toda las librerías complementarias. Asimismo, analiza el licenciamiento de cada librería para proporcionarte una vista global del riesgo de seguridad en cuando al uso de librerías y licencias.
+
+También puede integrarse con los sistemas de gestión de código (SCM) como github, gitlab, etc. Para analizar el codigo que está siendo almacenado en estos sistemas para determinar su riesgo actual.
+
+![Snyk Open Source](snykopensource.png)
+
+A lo largo del workshop vamos a utilizar esta funcionalidad, así como otras.
 
 ## Instalar una aplicación Vulnerable
 
@@ -94,7 +106,7 @@ serverfixed.js
 
 ```
 
-Como podemos observar este campo de texto permite la ejecución de comandos propios del sistema. La razón es que el ingreso de texto en el campo no está limitado o sanitizado. Vamos bien hasta ahora.
+Como podemos observar este campo de texto permite la ejecución de comandos propios del sistema a esto se le conoce como inyección de comando o [Command Injection](#https://owasp.org/www-community/attacks/Command_Injection). La razón es que el ingreso de texto en el campo no está limitado o sanitizado y permite erroneamente el ingreso de estos comandos. Más adelante vamos a remediar esta vulnerabilidad. Vamos bien hasta ahora.
 
 5. Si necesitamos borrar el contenedor y la imagen podemos utilizar los siguientes comandos.
 
@@ -103,3 +115,5 @@ docker stop <CONTAINER_ID>
 docker rm <CONTAINER_ID>
 docker image rm <IMAGE_ID>
 ```
+
+## Conociento Snyk CLI
