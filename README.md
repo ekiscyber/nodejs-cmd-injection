@@ -29,12 +29,12 @@ Dependiendo en la plataforma que te encuentres algunos de los procedimientos, ar
 
 **Requerimientos de Software**
 
-- [Instalar VSCode](#https://code.visualstudio.com/download)
-- [Instalar Docker Desktop](#https://www.docker.com/products/docker-desktop/)
-- Instalar NodeJS en [Mac](#https://www.youtube.com/watch?v=6VNkLyQeu3Y) o [Windows](#https://www.youtube.com/watch?v=Z-Ofqd2yBCc)
-- Instalar Git en [Mac](#https://git-scm.com/download/mac) o [Windows](#https://gitforwindows.org/)
-- [Crear una Cuenta en GitHub](#https://github.com/join)
-- [Crear un Cuenta Free en Snyk](#https://app.snyk.io/login)
+- [Instalar VSCode](https://code.visualstudio.com/download)
+- [Instalar Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- Instalar NodeJS en [Mac](https://www.youtube.com/watch?v=6VNkLyQeu3Y) o [Windows](https://www.youtube.com/watch?v=Z-Ofqd2yBCc)
+- Instalar Git en [Mac](https://git-scm.com/download/mac) o [Windows](https://gitforwindows.org/)
+- [Crear una Cuenta en GitHub](https://github.com/join)
+- [Crear un Cuenta Free en Snyk](https://app.snyk.io/login)
 
 _Nota:_ Algunos sistemas operativos requieren software adicional para instalar el software
 
@@ -52,7 +52,7 @@ A lo largo del workshop vamos a utilizar esta funcionalidad, así como otras fun
 
 ## 4. Instalar una aplicación Vulnerable
 
-Vamos a la práctica. Para el laboratorio vamos a utilizar una versión simplificada de la aplicación original: [Vulnerable NodeJS Applicaion](#https://github.com/payatu/vuln-nodejs-app). Si luego, deseas explorar más de 20 vulnerabilidades con su respectiva solución te recomiendo utilices su repositorio original; eso sí, vas a necesitar más recursos de tu computadora para correr los contenedores y también más espacio en disco.
+Vamos a la práctica. Para el laboratorio vamos a utilizar una versión simplificada de la aplicación original: [Vulnerable NodeJS Applicaion](https://github.com/payatu/vuln-nodejs-app). Si luego, deseas explorar más de 20 vulnerabilidades con su respectiva solución te recomiendo utilices su repositorio original; eso sí, vas a necesitar más recursos de tu computadora para correr los contenedores y también más espacio en disco.
 
 1. Utilizando la terminal o powershell en windows. Vamos a clonar el repositorio haciendo uso de git clone y guardarlo en una carpeta snyk-workshop
 
@@ -106,7 +106,7 @@ drwxr-xr-x 1 root root   4096 Dec 19 22:30 node_modules
 
 ```
 
-Como podemos observar este campo de texto permite la ejecución de comandos propios del sistema a esto se le conoce como inyección de comando o [Command Injection](#https://owasp.org/www-community/attacks/Command_Injection). La razón es que el ingreso de texto en el campo no está limitado o sanitizado y permite erroneamente el ingreso de estos comandos. Más adelante vamos a remediar esta vulnerabilidad. Vamos bien hasta ahora.
+Como podemos observar este campo de texto permite la ejecución de comandos propios del sistema a esto se le conoce como inyección de comando o [Command Injection](https://owasp.org/www-community/attacks/Command_Injection). La razón es que el ingreso de texto en el campo no está limitado o sanitizado y permite erroneamente el ingreso de estos comandos. Más adelante vamos a remediar esta vulnerabilidad. Vamos bien hasta ahora.
 
 5. Si necesitamos borrar el contenedor y la imagen podemos utilizar los siguientes comandos.
 
@@ -122,7 +122,7 @@ Snyk CLI será la manera de llevar el poder de las pruebas de seguridad de Snyk 
 
 > Nota: EKIS Cybersecurity ayuda a las empresas a integrar Snyk dentro del Pipeline de CI/CD.
 
-1. Vamos a descargar Snyk CLI y guardarlo en la carpeta snyk-workshop. Snyk cli está disponible [Mac](#https://static.snyk.io/cli/latest/snyk-macos), [Windows](#https://static.snyk.io/cli/latest/snyk-win.exe) y [otras plataformas](#https://github.com/snyk/cli). Luego ingresamos a la carpeta de trabajo snyk-workshoop via linea de comandos y ejecutamos los siguientes comandos.
+1. Vamos a descargar Snyk CLI y guardarlo en la carpeta snyk-workshop. Snyk cli está disponible [Mac](https://static.snyk.io/cli/latest/snyk-macos), [Windows](https://static.snyk.io/cli/latest/snyk-win.exe) y [otras plataformas](https://github.com/snyk/cli). Luego ingresamos a la carpeta de trabajo snyk-workshoop via linea de comandos y ejecutamos los siguientes comandos.
 
 En Mac
 
@@ -262,7 +262,7 @@ https://marketplace.visualstudio.com/items?itemName=snyk-security.snyk-vulnerabi
 Le damos en el botón instalar. Abrirá VSCode, nuevamente install o instalar. Espera unos segundos hasta que Snyk se descargue completamente. Aparecerá un ícono de un perro doberman, es la mascota de Snyk.
 Nota: Recomiendo cerrar y volver abrir VSCode para no tener ningun problema en la instalación del plugin.
 
-3. Ahora pasamos a la [autenticación](#https://docs.snyk.io/ide-tools/visual-studio-code-extension/visual-studio-code-extension-authentication). Clickeamos en el ícono de la mascota de Snyk y Presionamos en el botón para conectar VSCode con Snyk. Abrirá una ventana y le damos autenticar.
+3. Ahora pasamos a la [autenticación](https://docs.snyk.io/ide-tools/visual-studio-code-extension/visual-studio-code-extension-authentication). Clickeamos en el ícono de la mascota de Snyk y Presionamos en el botón para conectar VSCode con Snyk. Abrirá una ventana y le damos autenticar.
 
 ## 10. Remediando Vulnerabilidades en Código
 
@@ -368,7 +368,7 @@ Indicio: Necesitarás instalar whois en la imagen, para ello debes modificar el 
 
 ## 12. Cierre y próximos Pasos
 
-Gracias por llegar al final del workshop, hay mucho más por descubrir del mundo de Snyk. Aquí te regalo otro [Workshop](#https://cloudone-oss.awsworkshop.io/20_integration/22_snyk_cli.html) para que puedas profundizar. Asimismo, puedes visitar la página de [Snyk Learn](#https://learn.snyk.io/lessons/) para aprender sobre las vulnerabilidades más comunes en el desarrollo de aplicaciones, están muy bien explicadas.
+Gracias por llegar al final del workshop, hay mucho más por descubrir del mundo de Snyk. Aquí te regalo otro [Workshop](https://cloudone-oss.awsworkshop.io/20_integration/22_snyk_cli.html) para que puedas profundizar. Asimismo, puedes visitar la página de [Snyk Learn](https://learn.snyk.io/lessons/) para aprender sobre las vulnerabilidades más comunes en el desarrollo de aplicaciones, están muy bien explicadas.
 
 > Recuerda que En EKIS Cybersecurity ayudamos a las empresas a integrar seguridad dentro de pipeline de CI/CD. Puedes contactarnos al correo hola@ekis.consulting.
 
