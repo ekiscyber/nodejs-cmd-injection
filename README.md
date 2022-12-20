@@ -131,8 +131,7 @@ En Mac
 ```bash
 mv ./snyk-macos snyk
 chmod -x ./snyk
-sudo mv ./snyk /usr/local/bin
-snyk --version
+./snyk --version
 ```
 
 En Windows
@@ -150,7 +149,7 @@ snyk.exe --version
 En Mac
 
 ```bash
-snyk auth
+./snyk auth
 ```
 
 En Windows
@@ -169,12 +168,14 @@ Ya estamos listos para el primer análisis.
 
 ## Mi primer análisis de Composición de Software(SCA)
 
-Procederemos a analizar nuestras librerías o como otros los llaman las dependencias de nuestra aplicación. Este tipo de pruebas de seguridad es conocido como Análisis de composición de Software o Software Composition Analysis(SCA) en Inglés. Para realizar el análisis local, ejecutamos los siguientes comandos.
+Procederemos a analizar nuestras librerías o como otros los llaman las dependencias de nuestra aplicación. Este tipo de pruebas de seguridad es conocido como Análisis de composición de Software o Software Composition Analysis(SCA) en Inglés.
+
+1. Para realizar el análisis local, ejecutamos los siguientes comandos.
 
 En Mac
 
 ```bash
-snyk test
+./snyk test
 ```
 
 En Windows
@@ -201,8 +202,152 @@ Ahora que encontramos una vulnerabilidad en nuestras dependencias, vamos a remed
 
 Snyk integrado a los sistemas de gestión de código, permite determinar si la actualización puede romper algo. Enviando una notificación parecida a la siguiente:
 
+[Snyk] Security upgrade ejs from 3.1.6 to 3.1.7 #1
+
 | Severity | Priority Score(\*) | Issue                       | Breaking Change | Exploit Maturity |
 | :------- | :----------------- | :-------------------------- | :-------------: | :--------------: |
 | **H**    | 798/1000           | Remote Code Execution (RCE) |       No        | Proof of Concept |
 
-## Conociento Snyk Plug-in para VSCode
+Como podemos ver actualizar ejs de la versión vulnerable a la versión estable no rompe nada. Entones procederemos a actualizar.
+
+1. Para ellos vamos a ejecutar el siguiente comando en la carpeta snyk-workshop
+
+```bash
+npm install ejs@3.1.7
+```
+
+2.Revisamos el archivo package.json, que es el archivo que lleva el registro de todas las dependencias de nuetra aplicación. Debe mostrar la versión de ejs a la 3.1.7
+
+```json
+"dependencies": {
+		"ejs": "^3.1.7",
+		"express": "^4.18.2"
+	},
+```
+
+3. Ahora que hemos actualizado la dependencia vamos a proceder a correr nuevamente el análisis de composición de Software (SCA) utilizando Snyk.
+
+En Mac
+
+```bash
+snyk test
+```
+
+En Windows
+
+```bash
+.\snyk.exe test
+```
+
+Woala!, podemos ver que no se ha encontrado vulnerabilidades en las dependencias de nuetra aplicación.
+
+```html
+✔ Tested 73 dependencies for known issues, no vulnerable paths found.
+```
+
+## Conociento Snyk Plugin para VSCode
+
+El Plugin de Snyk permite analizar el código mientras se está codificando, permitiendo detectar las vulnerabilidades, problemas de calidad y proporcionando consejos de solución.
+
+Snyk cuenta con soporte para los IDE más usados del mercado como VSCode, IntelliJ, Eclipse y Visual Studio. Ahora vamos a utilizar VSCode.
+
+1. Primero arrastramos nuestra carpeta snyk-workshop a la ventana de VSCode.
+
+2. Abrimos un navegador e ingresamos a la siguiente URL
+
+https://marketplace.visualstudio.com/items?itemName=snyk-security.snyk-vulnerability-scanner
+
+Le damos en el botón instalar. Abrirá VSCode, nuevamente install o instalar. Espera unos segundos hasta que Snyk se descargue completamente. Aparecerá un ícono de un perro doberman, es la mascota de Snyk.
+Nota: Recomiendo cerrar y volver abrir VSCode para no tener ningun problema en la instalación del plugin.
+
+3. Ahora pasamos a la [autenticación](#https://docs.snyk.io/ide-tools/visual-studio-code-extension/visual-studio-code-extension-authentication). Clickeamos en el ícono de la mascota de Snyk y Presionamos en el botón para conectar VSCode con Snyk. Abrirá una ventana y le damos autenticar.
+
+4. Snyk Empezará a analizar nuestro código, realizando pruebas de composición de software y también realizará análisis estático de código.
+
+5. Vamos hacer doble click sobre el archivo server.js, se abrirá en VSCode y revisaremos que vulnerabilidad ha encontrado Snyk en el código. Podemos ver que resalta el código, si pasamos el mouse por encima nos brinda el detalle:
+
+```html
+Unsanitized input from the HTTP request body flows into child_process.exec, where it is
+used to build a shell command. This may result in a Command Injection vulnerability. Snyk
+Code Security
+```
+
+Podemos observar que Snyk Code ha detectado correctamente la vulnerabilidad y no tenemos falsos positivos inncesarios. También podemos ver que el código sin vulnerabilidades que está debajo, no tiene la misma vulnerabilidad.
+
+Pasando nuevamente el mouse por el código resltado podemos ver que opciones de solución tenemos. Vemos que alguien utilizó SPAWN para corregir la vulnerabilidad. Los procesos creados por Spawn no generan shell, el flujo de datos devueltos es constante y no tiene límite en cuanto a la transferencia de datos. Por lo que vamos a usarlo, pero también vamos a invocar al proceso ping directamente.
+
+6. Para corregir la vulnerabilidad vamos a modificar el código de server.js reemplazando todo el código por que se muestra a continuación.
+
+```javascript
+'use strict';
+
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+import { spawn } from 'child_process';
+import { execFile } from 'child_process';
+
+const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './'));
+
+var output = '';
+var pingoutput = '';
+
+app.get('/', (req, res) => {
+	res.render('index', {
+		output: null,
+		pingoutput: null,
+	});
+});
+
+app.post('/', (req, res) => {
+	const ping = req.body.ping;
+	const ping1 = req.body.ping1;
+	if (ping) {
+		let childProcess = spawn('/bin/ping', ['-c', '3', ping]);
+
+		childProcess.stdout.setEncoding('utf8');
+		childProcess.stdout.on('data', function (data) {
+			data = data.toString();
+			output += data;
+		});
+
+		childProcess.stderr.setEncoding('utf8');
+		childProcess.stderr.on('data', function (data) {
+			data = data.toString();
+			output += data;
+		});
+
+		childProcess.on('close', function (code) {
+			console.log('closing code: ' + code);
+			res.render('index', { output: output, pingoutput: null });
+		});
+	}
+	if (ping1) {
+		execFile('/bin/ping', ['-c', '3', ping1], function (err, stdout, stderr) {
+			pingoutput = stdout + stderr;
+			res.render('index', {
+				pingoutput: pingoutput,
+				output: null,
+			});
+		});
+	}
+});
+
+// ping directory: /usr/bin/ping or /usr/bin/ping
+
+app.listen(3000, () => console.log('Listening on Port:3000'));
+```
+
+6. Podemos observar que la vulnerabilidad ya no se muestra y que Snyk dejó de resaltarlo.
+
+CMD + Shift + P
+Snyk: Set Token
+Snyk: Log Out
