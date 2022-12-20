@@ -7,29 +7,29 @@
 
 ### Contenido del Workshop
 
-1. [Diclaimer](#1-disclaimer)
+1. [Disclaimer](#1-disclaimer)
 2. [Requerimientos del workshop](#2-requerimientos-del-workshop)
 3. [Conociendo Snyk Open-Source](#3-conociendo-snyk-open-source)
 4. [Instalar una aplicación vulnerable](#4-instalar-una-aplicación-vulnerable)
-5. [Conociento Snyk CLI](#5-conociento-snyk-cli)
+5. [Conociendo Snyk CLI](#5-conociendo-snyk-cli)
 6. [Mi primer análisis de Composición de Software(SCA)](#6-mi-primer-análisis-de-composición-de-softwaresca)
 7. [Primer desafío](#7-primer-desafío)
 8. [Remediando vulnerabilidades en las dependencias](#8-remediando-vulnerabilidades-en-las-dependencias)
-9. [Conociento Plugin de Snyk para VSCode](#9-conociento-plugin-de-snyk-para-vscode)
+9. [Conociendo Plugin de Snyk para VSCode](#9-conociendo-plugin-de-snyk-para-vscode)
 10. [Remediando Vulnerabilidades en Código](#10-remediando-vulnerabilidades-en-código)
 11. [Segundo Desafío](#11-segundo-desafío)
 12. [Cierre y próximos Pasos](#12-cierre-y-próximos-pasos)
 
 ## 1. Disclaimer
 
-Dependiendo en la plataforma que te encuentres algunos de los procedimientos, archivos y comandos pueden cambiar. Este workshop ha sido probado en ambientes Windows y Mac. Si te encuentras con algún error recuerda que es parte del proceso de aprendizaje y resolverlos es la gratificación. Ante cualquier error procura primero comprender el error antes de buscar en la red, es muy probable que alguien haya pasado por lo mismo que tu. Sin más que resaltar, vamos a divertirnos.
+Dependiendo en la plataforma que te encuentres algunos de los procedimientos, archivos y comandos pueden cambiar. Este workshop ha sido probado en ambientes Windows y Mac. Si te encuentras con algún error recuerda que es parte del proceso de aprendizaje y resolverlos es la gratificación. Ante cualquier error procura primero comprender el error antes de buscar en la red, es muy probable que alguien haya pasado por lo mismo. Sin más, vamos a divertirnos.
 
 ## 2. Requerimientos del Workshop
 
 **Requerimientos de la PC**
 
 - Al menos 8 GB de Memoria RAM
-- Espacio en Disco de xxx GB
+- Espacio libre en Disco de 1GB
 - Contar con privilegios de Administrador
 
 **Requerimientos de Software**
@@ -45,11 +45,11 @@ _Nota:_ Algunos sistemas operativos requieren software adicional para instalar e
 
 ## 3. Conociendo Snyk Open-Source
 
-Cada vez que desarrollamos una aplicación hacemos uso de código open source. Este código en forma de librerías, son importadas a nuestra aplicación, permitiendo desarrollar aplicaciones de forma más rápita y nos evita tener que construir la misma funcionalidad una y otra vez. Estas librerías también dependen de otras más, y así se van reutilizando. Sin embargo, las librerías no están libres de tener vulnerabilidades o que alguien pueda modificar su código y es por esta razón que el uso de librerías expone a las organizaciones a tener problemas de seguridad y de licenciamiento.
+Cada vez que desarrollamos una aplicación hacemos uso de código open source. Este código en forma de librerías, son importadas a nuestra aplicación, permitiendo desarrollar aplicaciones de forma más rápida y nos evita tener que construir la misma funcionalidad una y otra vez. Estas librerías también dependen de otras más, y así se van reutilizando. Sin embargo, las librerías no están libres de tener vulnerabilidades o que alguien pueda modificar su código y es por esta razón que el uso de librerías expone a las organizaciones a tener problemas de seguridad y de licenciamiento.
 
-**Snyk Open Source** permite analizar facilmente todas las librerías(dependencias) detectando vulnerabilidades en toda la rama de librerías. Sí, scuchaste bien, no solo analiza la librería principal, también analiza toda las librerías complementarias. Asimismo, analiza el licenciamiento de cada librería para proporcionarte una vista global del riesgo de seguridad en cuando al uso de librerías y licencias.
+**Snyk Open Source** permite analizar facilmente todas las librerías(dependencias) detectando vulnerabilidades en toda la rama de librerías. Sí, escuchaste bien, no solo analiza la librería principal, también analiza todas las librerías complementarias. Asimismo, analiza el licenciamiento de cada librería para proporcionarte una vista global del riesgo de seguridad en cuando al uso de librerías y licencias.
 
-También puede integrarse con los sistemas de gestión de código (SCM) como github, gitlab, etc. Para analizar el codigo que está siendo almacenado en estos sistemas para determinar su riesgo actual.
+También puede integrarse con los sistemas de gestión de código (SCM) como github, gitlab, etc. Para analizar el código que está siendo almacenado en estos sistemas para determinar su riesgo actual.
 
 ![Snyk Open Source](screenshot1.png)
 
@@ -57,7 +57,7 @@ A lo largo del workshop vamos a utilizar esta funcionalidad, así como otras fun
 
 ## 4. Instalar una aplicación Vulnerable
 
-Vamos a la práctica. Para el laboratorio vamos a utilizar una versión simplificada de la aplicación original: [Vulnerable NodeJS Applicaion](https://github.com/payatu/vuln-nodejs-app). Si luego, deseas explorar más de 20 vulnerabilidades con su respectiva solución te recomiendo utilices su repositorio original; eso sí, vas a necesitar más recursos de tu computadora para correr los contenedores y también más espacio en disco.
+Vamos a la práctica. Para el laboratorio vamos a utilizar una versión simplificada de la aplicación original: [Vulnerable NodeJS Application](https://github.com/payatu/vuln-nodejs-app). Si luego, deseas explorar más de 20 vulnerabilidades con su respectiva solución te recomiendo utilices su repositorio original; eso sí, vas a necesitar más recursos de tu computadora para correr los contenedores y también más espacio en disco.
 
 1. Utilizando la terminal o powershell en windows. Vamos a clonar el repositorio haciendo uso de git clone y guardarlo en una carpeta snyk-workshop
 
@@ -111,7 +111,7 @@ drwxr-xr-x 1 root root   4096 Dec 19 22:30 node_modules
 
 ```
 
-Como podemos observar este campo de texto permite la ejecución de comandos propios del sistema a esto se le conoce como inyección de comando o [Command Injection](https://owasp.org/www-community/attacks/Command_Injection). La razón es que el ingreso de texto en el campo no está limitado o sanitizado y permite erroneamente el ingreso de estos comandos. Más adelante vamos a remediar esta vulnerabilidad. Vamos bien hasta ahora.
+Como podemos observar este campo de texto permite la ejecución de comandos propios del sistema a esto se le conoce como inyección de comando o [Command Injection](https://owasp.org/www-community/attacks/Command_Injection). La razón es que el ingreso de texto en el campo no está limitado o sanitizado y permite erróneamente el ingreso de estos comandos. Más adelante vamos a remediar esta vulnerabilidad. Vamos bien hasta ahora.
 
 5. Si necesitamos borrar el contenedor y la imagen podemos utilizar los siguientes comandos.
 
@@ -121,13 +121,13 @@ docker rm <CONTAINER_ID>
 docker image rm <IMAGE_ID>
 ```
 
-## 5. Conociento Snyk CLI
+## 5. Conociendo Snyk CLI
 
-Snyk CLI será la manera de llevar el poder de las pruebas de seguridad de Snyk a tu pipeline CI/CD. Dicho de otra manera, permitirá correr pruebas de seguridad via línea de comandos y de manera automatizada. Menos letra, vamos a la práctica.
+Snyk CLI será la manera de llevar el poder de las pruebas de seguridad de Snyk a tu pipeline CI/CD. Dicho de otra manera, permitirá correr pruebas de seguridad a través de la línea de comandos y de manera automatizada. Menos letra, vamos a la práctica.
 
 > Nota: EKIS Cybersecurity ayuda a las empresas a integrar Snyk dentro del Pipeline de CI/CD.
 
-1. Vamos a descargar Snyk CLI y guardarlo en la carpeta snyk-workshop. Snyk cli está disponible [Mac](https://static.snyk.io/cli/latest/snyk-macos), [Windows](https://static.snyk.io/cli/latest/snyk-win.exe) y [otras plataformas](https://github.com/snyk/cli). Luego ingresamos a la carpeta de trabajo snyk-workshoop via linea de comandos y ejecutamos los siguientes comandos.
+1. Vamos a descargar Snyk CLI y guardarlo en la carpeta snyk-workshop. Snyk cli está disponible [Mac](https://static.snyk.io/cli/latest/snyk-macos), [Windows](https://static.snyk.io/cli/latest/snyk-win.exe) y [otras plataformas](https://github.com/snyk/cli). Luego ingresamos a la carpeta de trabajo snyk-workshoop a través de la línea de comandos y ejecutamos los siguientes comandos.
 
 En Mac
 
@@ -195,9 +195,9 @@ En este proyecto sumamente light, Snyk encontró una vulnerabilidad. Imagina en 
 
 ## 7. Primer Desafío
 
-El área de ciberseguridad te está pidiendo los resultados del análisis de composición de software (SCA), pero para poder analizarlos en su sistemas de inteligencia artificial predictiva, necesta los resultados en formato JSON.
+El área de ciberseguridad te está pidiendo los resultados del análisis de composición de software (SCA), pero para poder analizarlos en sus sistemas de inteligencia artificial predictiva, necesita los resultados en formato JSON.
 
-> 💪🏼 ¿Cómo podrías obtener los resultados de esta análisis en formato json?
+> 💪🏼 ¿Cómo podrías obtener los resultados de este análisis en formato json?
 
 Si tienes código corriendo en una máquina local y quieres analizarla, pero necesitas tener visibilidad gráfica de los hallazgos.
 
@@ -205,7 +205,7 @@ Si tienes código corriendo en una máquina local y quieres analizarla, pero nec
 
 ## 8. Remediando vulnerabilidades en las dependencias
 
-Ahora que encontramos una vulnerabilidad en nuestras dependencias, vamos a remediarlos. Debes saber que muchas veces luego de remediar una vulnerabilidad actualizando la dependencia puede dejar a nuestra aplicación rota, es decir incapáz de seguir operando ya que la dependencia necesita de algunos cambios en el código.
+Ahora que encontramos una vulnerabilidad en nuestras dependencias, vamos a remediarlos. Debes saber que muchas veces luego de remediar una vulnerabilidad actualizando la dependencia puede dejar a nuestra aplicación rota, es decir incapaz de seguir operando ya que la dependencia necesita de algunos cambios en el código.
 
 Snyk integrado a los sistemas de gestión de código, permite determinar si la actualización puede romper algo. Enviando una notificación parecida a la siguiente:
 
@@ -223,7 +223,7 @@ Snyk integrado a los sistemas de gestión de código, permite determinar si la a
 npm install ejs@3.1.7
 ```
 
-2.Revisamos el archivo package.json, que es el archivo que lleva el registro de todas las dependencias de nuetra aplicación. Debe mostrar la versión de ejs a la 3.1.7
+2.Revisamos el archivo package.json, que es el archivo que lleva el registro de todas las dependencias de nuestra aplicación. Debe mostrar la versión de ejs a la 3.1.7
 
 ```json
 "dependencies": {
@@ -232,7 +232,7 @@ npm install ejs@3.1.7
 	},
 ```
 
-3. Ahora que hemos actualizado la dependencia vamos a proceder a correr nuevamente el análisis de composición de Software (SCA) utilizando Snyk.
+3. Ahora que hemos actualizado la dependencia vamos a correr nuevamente el análisis de composición de Software (SCA) utilizando Snyk.
 
 En Mac
 
@@ -246,13 +246,13 @@ En Windows
 .\snyk.exe test
 ```
 
-Woala!, podemos ver que no se ha encontrado vulnerabilidades en las dependencias de nuetra aplicación.
+Woala!, podemos ver que no se ha encontrado vulnerabilidades en las dependencias de nuestra aplicación.
 
 ```html
 ✔ Tested 73 dependencies for known issues, no vulnerable paths found.
 ```
 
-## 9. Conociento Plugin de Snyk para VSCode
+## 9. Conociendo Plugin de Snyk para VSCode
 
 El Plugin de Snyk permite analizar el código mientras se está codificando, permitiendo detectar las vulnerabilidades, problemas de calidad y proporcionando consejos de solución.
 
@@ -264,16 +264,16 @@ El Plugin de Snyk permite analizar el código mientras se está codificando, per
 
 https://marketplace.visualstudio.com/items?itemName=snyk-security.snyk-vulnerability-scanner
 
-Le damos en el botón instalar. Abrirá VSCode, nuevamente install o instalar. Espera unos segundos hasta que Snyk se descargue completamente. Aparecerá un ícono de un perro doberman, es la mascota de Snyk.
+Le damos en el botón instalar. Abrirá VSCode, nuevamente install o instalar. Espera unos segundos hasta que Snyk se descargue completamente. Aparecerá un ícono de un perro dóberman, es la mascota de Snyk.
 Nota: Recomiendo cerrar y volver abrir VSCode para no tener ningun problema en la instalación del plugin.
 
-3. Ahora pasamos a la [autenticación](https://docs.snyk.io/ide-tools/visual-studio-code-extension/visual-studio-code-extension-authentication). Clickeamos en el ícono de la mascota de Snyk y Presionamos en el botón para conectar VSCode con Snyk. Abrirá una ventana y le damos autenticar.
+3. Ahora pasamos a la [autenticación](https://docs.snyk.io/ide-tools/visual-studio-code-extension/visual-studio-code-extension-authentication). Clicamos en el ícono de la mascota de Snyk y Presionamos en el botón para conectar VSCode con Snyk. Abrirá una ventana y le damos autenticar.
 
 ## 10. Remediando Vulnerabilidades en Código
 
 Luego de autenticarnos, Snyk Empezará a analizar nuestro código, realizando pruebas de composición de software y también realizará análisis estático de código y pruebas de seguridad sobre código de IaC.
 
-1. En VSCode vamos hacer doble click sobre el archivo server.js y revisaremos que vulnerabilidad ha encontrado Snyk en el código. Podemos ver que resalta el código, si pasamos el mouse por encima nos brinda el detalle:
+1. En VSCode vamos a hacer doble clic sobre el archivo server.js y revisaremos que vulnerabilidad ha encontrado Snyk en el código. Podemos ver que resalta el código, si pasamos el mouse por encima nos brinda el detalle:
 
    ![Snyk Code Vulnerability](screenshot3.png)
 
@@ -283,9 +283,9 @@ used to build a shell command. This may result in a Command Injection vulnerabil
 Code Security
 ```
 
-👉 Podemos observar que Snyk Code ha detectado correctamente la vulnerabilidad y no tenemos falsos positivos inncesarios. También podemos ver que el código sin vulnerabilidades que está debajo, no tiene la misma vulnerabilidad.
+👉 Podemos observar que Snyk Code ha detectado correctamente la vulnerabilidad y no tenemos falsos positivos innecesarios. También podemos ver que el código sin vulnerabilidades que está debajo no tiene la misma vulnerabilidad.
 
-Pasando nuevamente el mouse por el código resltado podemos ver que opciones de solución tenemos(Quick Fix > Show This Suggestion). Vemos que alguien utilizó SPAWN para corregir la vulnerabilidad. Los procesos creados por Spawn no generan shell, el flujo de datos devueltos es constante y no tiene límite en cuanto a la transferencia de datos. Por lo que vamos a usarlo, pero también vamos a invocar al proceso ping directamente.
+Pasando nuevamente el mouse por el código resaltado podemos ver que opciones de solución tenemos(Quick Fix > Show This Suggestion). Vemos que alguien utilizó SPAWN para corregir la vulnerabilidad. Los procesos creados por Spawn no generan shell, el flujo de datos devueltos es constante y no tiene límite en cuanto a la transferencia de datos. Por lo que vamos a usarlo, pero también vamos a invocar al proceso ping directamente.
 
 ![Snyk Code Advice](screenshot4.png)
 
@@ -363,9 +363,9 @@ app.listen(3000, () => console.log('Listening on Port:3000'));
 
 ## 11. Segundo Desafío
 
-> 💪🏼 Modifica el código de tal manera que reemplaze la funcionalidad de ping por la de whois
+> 💪🏼 Modifica el código de tal manera que reemplace la funcionalidad de ping por la de whois
 
-Debes ingresar en el las cajas de exto el nombre de dominio o dirección y te debe devolver la información whois
+Debes ingresar en  las cajas de exto el nombre de dominio o dirección IP y te debe devolver la información whois
 
 Indicio: Necesitarás instalar whois en la imagen, para ello debes modificar el archivo Dockerfile
 
