@@ -2,18 +2,18 @@
 
 ### Contenido del Workshop
 
-1. [Diclaimer](#Disclaimer)
-2. [Requerimientos del workshop](#requerimientos-del-workshop)
-3. [Conociendo Snyk Open-Source](#requerimientos-del-workshop)
-4. [Instalar una aplicación vulnerable](#instalar-una-aplicación-vulnerable)
-5. [Conociento Snyk CLI](#conociento-snyk-cli)
-6. [Mi primer análisis de Composición de Software(SCA)](#mi-primer-análisis-de-composición-de-softwaresca)
-7. [Primer desafío](#primer-desafío)
-8. [Remediando vulnerabilidades en las dependencias](#remediando-vulnerabilidades-en-las-dependencias)
+1. [Diclaimer](#1-disclaimer)
+2. [Requerimientos del workshop](#2-requerimientos-del-workshop)
+3. [Conociendo Snyk Open-Source](#3-conociendo-snyk-open-source)
+4. [Instalar una aplicación vulnerable](#4-instalar-una-aplicación-vulnerable)
+5. [Conociento Snyk CLI](#5-conociento-snyk-cli)
+6. [Mi primer análisis de Composición de Software(SCA)](#6-mi-primer-análisis-de-composición-de-softwaresca)
+7. [Primer desafío](#7-primer-desafío)
+8. [Remediando vulnerabilidades en las dependencias](#8-remediando-vulnerabilidades-en-las-dependencias)
 9. [Conociento Plugin de Snyk para VSCode](#9-conociento-plugin-de-snyk-para-vscode)
-10. [Remediando Vulnerabilidades en Código](#remediando-vulnerabilidades-en-código)
-11. [Segundo Desafío](#segundo-desafío)
-12. [Cierre y próximos Pasos](#cierre-y-próximos-pasos)
+10. [Remediando Vulnerabilidades en Código](#10-remediando-vulnerabilidades-en-código)
+11. [Segundo Desafío](#11-segundo-desafío)
+12. [Cierre y próximos Pasos](#12-cierre-y-próximos-pasos)
 
 ## 1. Disclaimer
 
