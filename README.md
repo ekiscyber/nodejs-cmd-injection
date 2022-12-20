@@ -11,11 +11,9 @@
 7. [Primer desafío](#primer-desafío)
 8. Remediando vulnerabilidades en las dependencias
 9. [Conociento Snyk Plug-in para VSCode](#conociento-snyk-plug-in-para-vscode)
-10. Segundo Desafío
-11. Conociendo Snyk Code
-12. Remediando Vulnerabilidades en Código
-13. Tercer Desafío
-14. Cierre y próximos Pasos
+10. Remediando Vulnerabilidades en Código
+11. Segundo Desafío
+12. Cierre y próximos Pasos
 
 ## Disclaimer
 
@@ -48,7 +46,7 @@ Cada vez que desarrollamos una aplicación hacemos uso de código open source. E
 
 También puede integrarse con los sistemas de gestión de código (SCM) como github, gitlab, etc. Para analizar el codigo que está siendo almacenado en estos sistemas para determinar su riesgo actual.
 
-![Snyk Open Source](snykopensource.png)
+![Snyk Open Source](screenshot1.png)
 
 A lo largo del workshop vamos a utilizar esta funcionalidad, así como otras funcionalidades de Snyk.
 
@@ -73,7 +71,7 @@ docker ps -a
 ```
 
 3. Abrimos un navegador e ingresamos a la dirección: localhost:8080. Nos debe mostrar la siguiente ventana.
-   ![Captura de Pantalla de Node JS Vulnerable](screenshot-nodecmdinj.png)
+   ![Captura de Pantalla de Node JS Vulnerable](screenshot2.png)
 
 4. En el primer campo de texto vamos a ingresar el siguiente comando.
 
@@ -196,6 +194,10 @@ El área de ciberseguridad te está pidiendo los resultados del análisis de com
 
 > ¿Cómo podrías obtener los resultados de esta análisis en formato json?
 
+Si tienes código corriendo en una máquina local y quieres analizarla, pero necesitas tener visibilidad gráfica de los hallazgos.
+
+> ¿Cómo podrías ejecutar snyk monitor de tal manera que el código se suba a la plataforma de Snyk y te proporcione reportes?
+
 ## Remediando vulnerabilidades en las dependencias
 
 Ahora que encontramos una vulnerabilidad en nuestras dependencias, vamos a remediarlos. Debes saber que muchas veces luego de remediar una vulnerabilidad actualizando la dependencia puede dejar a nuestra aplicación rota, es decir incapáz de seguir operando ya que la dependencia necesita de algunos cambios en el código.
@@ -262,9 +264,13 @@ Nota: Recomiendo cerrar y volver abrir VSCode para no tener ningun problema en l
 
 3. Ahora pasamos a la [autenticación](#https://docs.snyk.io/ide-tools/visual-studio-code-extension/visual-studio-code-extension-authentication). Clickeamos en el ícono de la mascota de Snyk y Presionamos en el botón para conectar VSCode con Snyk. Abrirá una ventana y le damos autenticar.
 
-4. Snyk Empezará a analizar nuestro código, realizando pruebas de composición de software y también realizará análisis estático de código.
+## Remediando Vulnerabilidades en Código
 
-5. Vamos hacer doble click sobre el archivo server.js, se abrirá en VSCode y revisaremos que vulnerabilidad ha encontrado Snyk en el código. Podemos ver que resalta el código, si pasamos el mouse por encima nos brinda el detalle:
+Luego de autenticarnos, Snyk Empezará a analizar nuestro código, realizando pruebas de composición de software y también realizará análisis estático de código y pruebas de seguridad sobre código de IaC.
+
+1. En VSCode vamos hacer doble click sobre el archivo server.js y revisaremos que vulnerabilidad ha encontrado Snyk en el código. Podemos ver que resalta el código, si pasamos el mouse por encima nos brinda el detalle:
+
+   ![Snyk Code Vulnerability](screenshot3.png)
 
 ```html
 Unsanitized input from the HTTP request body flows into child_process.exec, where it is
@@ -274,7 +280,9 @@ Code Security
 
 Podemos observar que Snyk Code ha detectado correctamente la vulnerabilidad y no tenemos falsos positivos inncesarios. También podemos ver que el código sin vulnerabilidades que está debajo, no tiene la misma vulnerabilidad.
 
-Pasando nuevamente el mouse por el código resltado podemos ver que opciones de solución tenemos. Vemos que alguien utilizó SPAWN para corregir la vulnerabilidad. Los procesos creados por Spawn no generan shell, el flujo de datos devueltos es constante y no tiene límite en cuanto a la transferencia de datos. Por lo que vamos a usarlo, pero también vamos a invocar al proceso ping directamente.
+Pasando nuevamente el mouse por el código resltado podemos ver que opciones de solución tenemos(Quick Fix > Show This Suggestion). Vemos que alguien utilizó SPAWN para corregir la vulnerabilidad. Los procesos creados por Spawn no generan shell, el flujo de datos devueltos es constante y no tiene límite en cuanto a la transferencia de datos. Por lo que vamos a usarlo, pero también vamos a invocar al proceso ping directamente.
+
+![Snyk Code Advice](screenshot4.png)
 
 6. Para corregir la vulnerabilidad vamos a modificar el código de server.js reemplazando todo el código por que se muestra a continuación.
 
@@ -348,6 +356,20 @@ app.listen(3000, () => console.log('Listening on Port:3000'));
 
 6. Podemos observar que la vulnerabilidad ya no se muestra y que Snyk dejó de resaltarlo.
 
-CMD + Shift + P
-Snyk: Set Token
-Snyk: Log Out
+## Segundo Desafío
+
+> Modifica el código de tal manera que reemplaze la funcionalidad de ping por la de whois
+
+Debes ingresar en el las cajas de exto el nombre de dominio o dirección y te debe devolver la información whois
+
+Indicio: También debes instalar whois, para ello debes modificar el archivo Dockerfile
+
+> finalmente inicia tu contenedor con el código que permite whois y pruébalo en un navegador
+
+## Cierre y próximos Pasos
+
+Gracias por llegar al final del workshop, hay mucho más por descubrir del mundo de Snyk. Aquí te regalo otro [Workshop](#https://cloudone-oss.awsworkshop.io/20_integration/22_snyk_cli.html) para que puedas profundizar. Asimismo, puedes visitar la página de [Snyk Learn](#https://learn.snyk.io/lessons/) para aprender sobre las vulnerabilidades más comunes en el desarrollo de aplicaciones, están muy bien explicadas.
+
+> Recuerda que En EKIS Cybersecurity ayudamos a las empresas a integrar seguridad dentro de pipeline de CI/CD. Puedes contactarnos al correo hola@ekis.consulting.
+
+Hasta la siguiente edición.
