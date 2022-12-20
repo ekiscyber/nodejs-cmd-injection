@@ -10,7 +10,7 @@
 6. [Mi primer análisis de Composición de Software(SCA)](#mi-primer-análisis-de-composición-de-softwaresca)
 7. [Primer desafío](#primer-desafío)
 8. [Remediando vulnerabilidades en las dependencias](#remediando-vulnerabilidades-en-las-dependencias)
-9. [Conociento Snyk Plug-in para VSCode](#conociento-snyk-plug-in-para-vscode)
+9. [Conociento Plugin de Snyk para VSCode](#9-conociento-plugin-de-snyk-para-vscode)
 10. [Remediando Vulnerabilidades en Código](#remediando-vulnerabilidades-en-código)
 11. [Segundo Desafío](#segundo-desafío)
 12. [Cierre y próximos Pasos](#cierre-y-próximos-pasos)
@@ -247,7 +247,7 @@ Woala!, podemos ver que no se ha encontrado vulnerabilidades en las dependencias
 ✔ Tested 73 dependencies for known issues, no vulnerable paths found.
 ```
 
-## 9. Conociento Snyk Plugin para VSCode
+## 9. Conociento Plugin de Snyk para VSCode
 
 El Plugin de Snyk permite analizar el código mientras se está codificando, permitiendo detectar las vulnerabilidades, problemas de calidad y proporcionando consejos de solución.
 
