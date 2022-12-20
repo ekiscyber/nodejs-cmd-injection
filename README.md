@@ -182,21 +182,21 @@ En Windows
 .\snyk.exe test
 ```
 
-oh!, encontró una vulnerabilidad en EJS y también tiene la solución.
+oh! 😮, encontró una vulnerabilidad en EJS y también tiene la solución.
 
 En este proyecto sumamente light, Snyk encontró una vulnerabilidad. Imagina en proyectos donde tienen miles de dependencias. La cantidad de vulnerabilidades que puedes encontrar es mucho mayor.
 
-Snyk CLI también permite realizar otras pruebas de seguridad como Análisis Estático de Código(SAST) o Análisis de código de infraestructura como código (IaC). Asimismo, con un solo comando puedes subir tu código a la plataforma SaaS para tener una vista consolidada y visual de las vulnerabilidades. Lo dejamos para una segunda edición del Workshop.
+👉 Snyk CLI también permite realizar otras pruebas de seguridad como Análisis Estático de Código(SAST) o Análisis de código de infraestructura como código (IaC). Asimismo, con un solo comando puedes subir tu código a la plataforma SaaS para tener una vista consolidada y visual de las vulnerabilidades. Lo dejamos para una segunda edición del Workshop.
 
 ## Primer Desafío
 
 El área de ciberseguridad te está pidiendo los resultados del análisis de composición de software (SCA), pero para poder analizarlos en su sistemas de inteligencia artificial predictiva, necesta los resultados en formato JSON.
 
-> ¿Cómo podrías obtener los resultados de esta análisis en formato json?
+> 💪🏼 ¿Cómo podrías obtener los resultados de esta análisis en formato json?
 
 Si tienes código corriendo en una máquina local y quieres analizarla, pero necesitas tener visibilidad gráfica de los hallazgos.
 
-> ¿Cómo podrías ejecutar snyk monitor de tal manera que el código se suba a la plataforma de Snyk y te proporcione reportes?
+> 💪🏼 ¿Cómo podrías ejecutar snyk monitor de tal manera que el código se suba a la plataforma de Snyk y te proporcione reportes?
 
 ## Remediando vulnerabilidades en las dependencias
 
@@ -210,7 +210,7 @@ Snyk integrado a los sistemas de gestión de código, permite determinar si la a
 | :------- | :----------------- | :-------------------------- | :-------------: | :--------------: |
 | **H**    | 798/1000           | Remote Code Execution (RCE) |       No        | Proof of Concept |
 
-Como podemos ver actualizar ejs de la versión vulnerable a la versión estable no rompe nada. Entones procederemos a actualizar.
+👉 Podemos ver que actualizar ejs a la versión más estable no rompe nada. Entones procederemos a actualizar.
 
 1. Para ellos vamos a ejecutar el siguiente comando en la carpeta snyk-workshop
 
@@ -251,7 +251,7 @@ Woala!, podemos ver que no se ha encontrado vulnerabilidades en las dependencias
 
 El Plugin de Snyk permite analizar el código mientras se está codificando, permitiendo detectar las vulnerabilidades, problemas de calidad y proporcionando consejos de solución.
 
-Snyk cuenta con soporte para los IDE más usados del mercado como VSCode, IntelliJ, Eclipse y Visual Studio. Ahora vamos a utilizar VSCode.
+👉 Snyk cuenta con soporte para los IDE más usados del mercado como VSCode, IntelliJ, Eclipse y Visual Studio. Ahora vamos a utilizar VSCode.
 
 1. Primero arrastramos nuestra carpeta snyk-workshop a la ventana de VSCode.
 
@@ -278,7 +278,7 @@ used to build a shell command. This may result in a Command Injection vulnerabil
 Code Security
 ```
 
-Podemos observar que Snyk Code ha detectado correctamente la vulnerabilidad y no tenemos falsos positivos inncesarios. También podemos ver que el código sin vulnerabilidades que está debajo, no tiene la misma vulnerabilidad.
+👉 Podemos observar que Snyk Code ha detectado correctamente la vulnerabilidad y no tenemos falsos positivos inncesarios. También podemos ver que el código sin vulnerabilidades que está debajo, no tiene la misma vulnerabilidad.
 
 Pasando nuevamente el mouse por el código resltado podemos ver que opciones de solución tenemos(Quick Fix > Show This Suggestion). Vemos que alguien utilizó SPAWN para corregir la vulnerabilidad. Los procesos creados por Spawn no generan shell, el flujo de datos devueltos es constante y no tiene límite en cuanto a la transferencia de datos. Por lo que vamos a usarlo, pero también vamos a invocar al proceso ping directamente.
 
@@ -358,13 +358,13 @@ app.listen(3000, () => console.log('Listening on Port:3000'));
 
 ## Segundo Desafío
 
-> Modifica el código de tal manera que reemplaze la funcionalidad de ping por la de whois
+> 💪🏼 Modifica el código de tal manera que reemplaze la funcionalidad de ping por la de whois
 
 Debes ingresar en el las cajas de exto el nombre de dominio o dirección y te debe devolver la información whois
 
 Indicio: También debes instalar whois, para ello debes modificar el archivo Dockerfile
 
-> finalmente inicia tu contenedor con el código que permite whois y pruébalo en un navegador
+> 💪🏼 finalmente inicia tu contenedor con el código que permite whois y pruébalo en un navegador
 
 ## Cierre y próximos Pasos
 
