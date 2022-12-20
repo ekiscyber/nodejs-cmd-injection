@@ -1,4 +1,4 @@
-# Workshop de Análisis y Remediación de Código con Snyk
+# Workshop: Análisis y Remediación de Código con Snyk
 
 <p align="center">
     <img width="200" src="https://ekis.consulting/assets/images/xs-logowhite.png" alt="EKIS Cybersecurity"><br>
