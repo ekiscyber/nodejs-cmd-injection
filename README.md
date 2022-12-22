@@ -41,7 +41,7 @@ Dependiendo en la plataforma que te encuentres algunos de los procedimientos, ar
 - [Crear una Cuenta en GitHub](https://github.com/join)
 - [Crear un Cuenta Free en Snyk](https://app.snyk.io/login)
 
-_Nota:_ Algunos sistemas operativos requieren software adicional para instalar el software
+_Nota:_ Algunos sistemas operativos requieren software adicional para instalar el software base.
 
 ## 3. Conociendo Snyk Open-Source
 
