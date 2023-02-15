@@ -375,6 +375,6 @@ Indicio: Necesitarás instalar whois en la imagen, para ello debes modificar el 
 
 Gracias por llegar al final del workshop, hay mucho más por descubrir del mundo de Snyk. Aquí te regalo otro [Workshop](https://cloudone-oss.awsworkshop.io/20_integration/22_snyk_cli.html) para que puedas profundizar. Asimismo, puedes visitar la página de [Snyk Learn](https://learn.snyk.io/lessons/) para aprender sobre las vulnerabilidades más comunes en el desarrollo de aplicaciones, están muy bien explicadas.
 
-> Recuerda que En EKIS Cybersecurity ayudamos a las empresas a integrar seguridad dentro de pipeline de CI/CD. Puedes contactarnos al correo hola@ekis.consulting.
+> Recuerda que En EKIS Cybersecurity ayudamos a las empresas a integrar seguridad dentro de pipeline de CI/CD. Puedes contactarnos al correo hola@ekiscyber.com.
 
 Hasta la siguiente edición.
